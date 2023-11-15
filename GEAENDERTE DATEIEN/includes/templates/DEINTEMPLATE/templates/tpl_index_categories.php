@@ -2,16 +2,15 @@
 /**
  * Page Template
  *
- * Loaded by main_page=index<br />
- * Displays category/sub-category listing<br />
+ * Loaded by main_page=index
+ * Displays category/sub-category listing
  * Uses tpl_index_category_row.php to render individual items
- *
- * @package templateSystem
- * @copyright Copyright 2003-2022 Zen Cart Development Team
+ * Zen Cart German Specific (158 code in 157)
+ * @copyright Copyright 2003-2023 Zen Cart Development Team
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_index_categories.php for ZX Slideshow 2022-03-01 18:20:16Z webchills $
+ * @version $Id: tpl_index_categories.php for ZX Slideshow 2023-11-15 18:20:16Z webchills $
  */
 ?>
 <div class="centerColumn" id="indexCategories">
@@ -26,21 +25,12 @@ if($this_is_home_page) {
 <!-- end edit for ZX Slideshow -->
 
 <?php if ($show_welcome == true) { ?>
-<h1 id="indexCategoriesHeading"><?php echo HEADING_TITLE; ?></h1>
+<h1 id="indexCategoriesHeading"><?php echo HEADING_TITLE_NESTED; ?></h1>
 
 <?php if (SHOW_CUSTOMER_GREETING == 1) { ?>
 <h2 class="greeting"><?php echo zen_customer_greeting(); ?></h2>
 <?php } ?>
 
-<!-- deprecated - to use - uncomment
-<?php if (TEXT_MAIN) { ?>
-<div id="" class="content"><?php echo TEXT_MAIN; ?></div>
-<?php } ?>-->
-
-<!-- deprecated - to use - uncomment
-<?php if (TEXT_INFORMATION) { ?>
-<div id="" class="content"><?php echo TEXT_INFORMATION; ?></div>
-<?php } ?>-->
 
 <?php if (DEFINE_MAIN_PAGE_STATUS >= 1 and DEFINE_MAIN_PAGE_STATUS <= 2) { ?>
 <div id="indexCategoriesMainContent" class="content"><?php
@@ -48,10 +38,11 @@ if($this_is_home_page) {
  * require the html_define for the index/categories page
  */
   include($define_page);
-?></div>
+?>
+</div>
 <?php } ?>
 
-<?php } else { ?>
+<?php } else { //show_welcome ?>
 <h1 id="indexCategoriesHeading"><?php echo $current_categories_name; ?></h1>
 <?php } ?>
 
@@ -121,7 +112,8 @@ while (!$show_display_category->EOF) {
 <?php } ?>
 
 <?php if ($show_display_category->fields['configuration_key'] == 'SHOW_PRODUCT_INFO_CATEGORY_UPCOMING') { ?>
-<?php include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_UPCOMING_PRODUCTS)); ?><?php } ?>
+<?php include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_UPCOMING_PRODUCTS)); ?>
+<?php } ?>
 <?php
   $show_display_category->MoveNext();
 } // !EOF

@@ -1,5 +1,5 @@
 ##################################################################
-# ZX Slideshow 2.7.0 Multilanguage Install - 2022-03-01 - webchills
+# ZX Slideshow 2.7.1 Multilanguage Install - 2023-11-15 - webchills
 ##################################################################
 
 INSERT INTO configuration_group (configuration_group_title, configuration_group_description, sort_order, visible) VALUES
