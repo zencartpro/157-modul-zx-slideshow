@@ -1,3 +1,14 @@
+<?php echo '<style type="text/css">
+        .nivoSlider img {
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
+        max-height:'.trim(ZX_SLIDESHOW_MAX_HEIGHT).'px ;
+        max-width:'.trim(ZX_SLIDESHOW_MAX_WIDTH).'px ;        
+        }
+        </style>';
+?>
+
 <script language="javascript" type="text/javascript" src="<?php echo($template->get_template_dir('jquery.nivo.slider.pack.js',DIR_WS_TEMPLATE, $current_page_base,'jscript'). '/jquery.nivo.slider.pack.js'); ?>"></script>
 
 <script language="javascript" type="text/javascript">
