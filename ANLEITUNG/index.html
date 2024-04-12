@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>ZX Slideshow multilanguage 2.7.1 für Zen-Cart 1.5.7 deutsch</title>
+<title>ZX Slideshow multilanguage 2.8.0 für Zen-Cart 1.5.7 deutsch</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="content-language" content="de">
@@ -12,7 +12,7 @@
 <body>
 <div id="wrapper">
 <div id="header">
-<h1>ZX Slideshow multilanguage 2.7.1 für Zen-Cart 1.5.7 deutsch</h1>
+<h1>ZX Slideshow multilanguage 2.8.0 für Zen-Cart 1.5.7 deutsch</h1>
 </div>
 
 <div id="slidetabsmenu" style="display: none;">
@@ -43,14 +43,24 @@
     Via Zen Cart Administration können  verschiedene Slidereffekte, Sliderlayouts und Zeiten für den Bildübergang eingestellt werden.<br>
     Der Slider ist responsiv und wird auf mobilen Devices entsprechend skaliert.
     <br>
-    Seit Version 2.7.0 wird die aktuelle jQuery Version unterstützt, so dass keinerlei Änderungen mehr in includes/templates/DEINTEMPLAN/common/html_header.php mehr nötig sind.</p>
-<h3>Copyright,  Lizenz</h3>
+    Seit Version 2.7.0 wird die aktuelle jQuery Version unterstützt, so dass keinerlei Änderungen mehr in includes/templates/DEINTEMPLAN/common/html_header.php mehr nötig sind.<br>
+    Seit Version 2.8.0 wird die Konfiguration von maximaler Bildhöhe und Bildbreite unterstützt.
+  </p>
+<h3>Copyright,  Lizenz, Changelog</h3>
 <p>Copyright dieser deutschen Anpassung/Erweiterung/Anleitung für Zen-Cart 1.5.7g deutsch<br>
-(c) 2016-2023 webchills (<a href="https://www.webchills.at" target="_blank">www.webchills.at</a>)</p>
+(c) 2016-2024 webchills (<a href="https://www.webchills.at" target="_blank">www.webchills.at</a>)</p>
 <p>deutsche Übersetzung/Erweiterung/Anpassung des Moduls ZX Slideshow 2.2 von Leonard Blauhorn (<a href="http://www.zenexpert.com">www.zenexpert.com</a>)<br>
   <a href="https://www.zen-cart.com/downloads.php?do=file&id=1404" target="_blank">http://www.zen-cart.com/downloads.php?do=file&id=1404</a></p>
 <p>This contribution is subject to version 3.0 of the GPL license available through the world-wide-web at the following url:<br>
-  <a href="http://www.zen-cart-pro.at/license/3_0.txt">http://www.zen-cart-pro.at/license/3_0.txt</a></p>
+  <a href="http://www.zen-cart-pro.at/license/3_0.txt">http://www.zen-cart-pro.at/license/3_0.txt</a><br>
+  <br>
+  Changelog<br>
+  <br>
+  2.8.0 - 2024-04-12<br>
+  webchills/Gammelin<br>
+  * Neue Konfigurationseinstellungen für maximale Bildhöhe/Bildbreite<br>
+  * Installation auf Autoinstaller umgestellt
+</p>
 </div>
 </div>
 </div>
@@ -64,7 +74,7 @@
 <h2>Installation</h2>
 <h3>Voraussetzungen</h3>
   <br>
-  Dieses Modul ist<strong> nur für die deutsche Zen-Cart 1.5.7 Version geeignet</strong></p>
+  Dieses Modul ist<strong> nur für die deutsche Zen-Cart 1.5.7h Version geeignet</strong></p>
   <br>
   <br>
   <br>
@@ -106,16 +116,13 @@ BACKUP gemacht? Ok, dann weiterlesen...
   <br>
   Wurden noch keine Änderungen gemacht (Zen-Cart  wurde z.B. gerade erst frisch installiert), die Ordner/Dateien aus dem Ordner GEAENDERTE DATEIEN einfach in der vorgegebenen Struktur in Ihr Zen-Cart Verzeichnis   hochladen.<br>
   <br>
-2. <br>
-Im Ordner SQL dieses Downloads die install.sql mit einem Texteditor   öffnen. Inhalt kopieren und einfügen ins Feld unter Tools &gt; SQL   Patches installieren und Absenden. Dadurch werden die nötigen   Datenbankeinträge vorgenommen.</p>
-<p>3.<br>
+  2.<br>
 Im Ordner NEUE DATEIEN dieses Downloads den Ordner DEINTEMPLATE    in den Namen des aktuell verwendeten   Templates umbenennen (z.B. responsive_classic)<br>
 Den Ordner DEINADMIN auf den Names Ihres Adminverzeichnisses umbenennen.<br>
-Dann in der vorgegebenen Struktur hochladen, dabei werden keine bestehenden Dateien überschrieben.
-</p>
+Dann in der vorgegebenen Struktur hochladen, dabei werden keine bestehenden Dateien überschrieben.</p>
+<p>3.<br>
+  In die Zen-Cart Administration einloggen und auf irgendeinen Menüpunkt clicken. Sie shen oben grüne Erfolgsmeldungen und unter Konfiguration &gt; ZX Slideshow sind nun die Einstellungsmöglichkeiten vorhanden. Stellen   Sie hier ZX Slideshow aktivieren auf true, um das Modul generell einzuschalten. Die weiteren Einstellungsmöglichkeiten sind jeweils dort erklärt. Ändern Sie die Benennung der Bannergruppen NICHT!</p>
 <p>4.<br>
-  In der Zen-Cart Administration sind nun unter Konfiguration &gt; ZX Slideshow die Einstellungsmöglichkeiten vorhanden. Stellen   Sie hier ZX Slideshow aktivieren auf true, um das Modul generell einzuschalten. Die weiteren Einstellungsmöglichkeiten sind jeweils dort erklärt. Ändern Sie die Benennung der Bannergruppen NICHT!</p>
-<p>5.<br>
   Die Bilder für Ihre Slideshow fügen Sie über den Zen Cart Bannermanager hinzu.<br>
   Bringen Sie die Bilder für Ihre Slideshow VOR dem Hochladen auf die gewünschte Größe, die besten Ergebnisse erzielen Sie, wenn die Bilder in der Slideshow alle exakt dieselbe Größe haben!
   <br>
@@ -139,8 +146,8 @@ Dann in der vorgegebenen Struktur hochladen, dabei werden keine bestehenden Date
   Hätten Sie im Shop auch französisch aktiv, dann wäre es slide1-33, slide2-33, slide3-33, usw.<br>
   <br>
   Die ID der Sprache ist ersichtlich unter Lokalisation &gt; Sprachen und sollte normalerweise der jeweilige Telefoncode sein</p>
-<p>6.<br>
-  Rufen Sie nun Ihre Startseite auf und prüfen Sie ob der Slider korrekt angezeigt wird.<br>
+<p>5.<br>
+  Rufen Sie nun Ihre Startseite auf und prüfen Sie ob der Slider korrekt angezeigt wird. Passen Sie falls nötig die maximale Bildhöhe/Bildbreite in der Konfiguration an.<br>
   Nun können Sie mit den Einstellungen unter Konfiguration &gt; ZX Slideshow experimentieren um z.B. die Dauer und Art der Animation zu ändern.<br>
   Um Änderungen am Design vorzunehmen, ändern Sie die gewünschten Einstellungen in der includes/templates/DEINTEMPLATE/css/index_home.css<br>
   <br>
@@ -159,15 +166,16 @@ Dann in der vorgegebenen Struktur hochladen, dabei werden keine bestehenden Date
 
 <h2>DEINSTALLATION</h2>
 <p>1.<br>
-Im Ordner SQL dieses Downloads die uninstall.sql mit einem Texteditor   öffnen. Inhalt kopieren und einfügen ins Feld unter Tools &gt; SQL   Patches installieren und Absenden. Dadurch werden die  vorgenommenen Datenbankeinträge entfernt. <br>
-<br>
-<br>
-2.<br>
 Alle von diesem Modul neu angelegten Dateien vom Server löschen<br>
 <br>
-3.<br>
-Alle von diesem Modul geänderten Dateien mit den Zen-Cart Originaldateien bzw. mit den Dateien Ihres Backups ersetzen. Sie hatten ja vor der Installation ein Backup angelegt oder?
-
+2
+.<br>
+Alle von diesem Modul geänderten Dateien mit den Zen-Cart Originaldateien bzw. mit den Dateien Ihres Backups ersetzen. Sie hatten ja vor der Installation ein Backup angelegt oder?<br>
+  <br>
+  3.<br>
+Im Ordner UNINSTALL dieses Downloads die uninstall.sql mit einem Texteditor   öffnen. Inhalt kopieren und einfügen ins Feld unter Tools &gt; SQL   Patches installieren und Absenden. Dadurch werden die  vorgenommenen Datenbankeinträge entfernt. 
+<br>
+<br>
 </p>
 
 

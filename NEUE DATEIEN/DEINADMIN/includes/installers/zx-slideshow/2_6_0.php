@@ -1,13 +1,19 @@
-##################################################################
-# ZX Slideshow 2.8.0 Multilanguage Install - 2024-01-24 - webchills
-##################################################################
+<?php
+/**
+ * @package ZX Slideshow
+ * @copyright Copyright 2003-2024 Zen Cart Development Team
+ * @copyright Portions Copyright 2003 osCommerce
+ * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
+ * @version $Id: 2_7_0.php  2024-04-12 11:35:51Z webchills $
+ */
+ 
+$db->Execute(" SELECT @gid:=configuration_group_id
+FROM ".TABLE_CONFIGURATION_GROUP."
+WHERE configuration_group_title= 'ZX Slideshow'
+LIMIT 1;");
 
-INSERT INTO configuration_group (configuration_group_title, configuration_group_description, sort_order, visible) VALUES
-('ZX Slideshow', 'Set Slideshow Options', '1', '1');
-SET @gid=last_insert_id();
-UPDATE configuration_group SET sort_order = last_insert_id() WHERE configuration_group_id = last_insert_id();
 
-INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES 
+$db->Execute("INSERT IGNORE INTO ".TABLE_CONFIGURATION." (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES
 ('ZX Slideshow', 'ZX_SLIDESHOW_STATUS', 'false', 'Activate ZX Slideshow for the main page', @gid, 1, NOW(), NULL, 'zen_cfg_select_option(array(\'true\', \'false\'),'),
 ('Slideshow Theme', 'ZX_SLIDESHOW_THEME', 'default', 'Select your theme', @gid, 2, NOW(), NULL, 'zen_cfg_select_option(array(\'default\', \'light\', \'dark\', \'bar\'),'),
 ('Effect', 'ZX_SLIDESHOW_EFFECT', 'fade', 'Effect used for image transition', @gid, 3, NOW(), NULL, 'zen_cfg_select_option(array(\'sliceDown\', \'sliceDownLeft\', \'sliceUp\', \'sliceUpLeft\', \'sliceUpDown\', \'sliceUpDownLeft\', \'fold\', \'fade\', \'random\', \'slideInRight\', \'slideInLeft\', \'boxRandom\', \'boxRain\', \'boxRainReverse\', \'boxRainGrow\', \'boxRainGrowReverse\'),'),
@@ -36,20 +42,10 @@ INSERT INTO configuration (configuration_title, configuration_key, configuration
 ('Banner Display Groups - Slide17', 'ZX_SLIDESHOW_BANNERS_GROUP_SET25', 'slide17', 'Slide 17', @gid, 26, NOW(), NULL, NULL),
 ('Banner Display Groups - Slide18', 'ZX_SLIDESHOW_BANNERS_GROUP_SET26', 'slide18', 'Slide 18', @gid, 27, NOW(), NULL, NULL),
 ('Banner Display Groups - Slide19', 'ZX_SLIDESHOW_BANNERS_GROUP_SET27', 'slide19', 'Slide 19', @gid, 28, NOW(), NULL, NULL),
-('Banner Display Groups - Slide20', 'ZX_SLIDESHOW_BANNERS_GROUP_SET28', 'slide20', 'Slide 20', @gid, 29, NOW(), NULL, NULL),
-('Slideshow - Image Height', 'ZX_SLIDESHOW_MAX_HEIGHT', '300', 'Set the maximum height of the slideshow images in pixel', @gid, 30, NOW(), NULL, NULL),
-('Slideshow - Image Width', 'ZX_SLIDESHOW_MAX_WIDTH', '900', 'Set the maximum width of the slideshow images in pixel', @gid, 31, NOW(), NULL, NULL),
-('ZX Slideshow Version', 'ZX_SLIDESHOW_VERSION', '2.8.0', 'Currently using: <strong>2.8.0</strong>', @gid, 32, NOW(), NULL, 'trim(');
-
-##############################
-# Add values for German admin
-##############################
-
-INSERT INTO configuration_group (configuration_group_id, language_id, configuration_group_title, configuration_group_description, sort_order, visible ) VALUES 
-(@gid, 43, 'ZX Slideshow', 'Einstellungen zur ZX Slideshow', '1', '1');
+('Banner Display Groups - Slide20', 'ZX_SLIDESHOW_BANNERS_GROUP_SET28', 'slide20', 'Slide 20', @gid, 29, NOW(), NULL, NULL)");                             
 
 
-REPLACE INTO configuration_language (configuration_title, configuration_key, configuration_description, configuration_language_id) VALUES
+$db->Execute("REPLACE INTO ".TABLE_CONFIGURATION_LANGUAGE." (configuration_title, configuration_key, configuration_description, configuration_language_id) VALUES
 ('ZX Slideshow aktivieren?', 'ZX_SLIDESHOW_STATUS', 'Wollen Sie die Slideshow auf der Startseite aktivieren?',	43),
 ('Slideshow Theme', 'ZX_SLIDESHOW_THEME', 'Wählen Sie Ihr gewünschtes Theme:',	43),
 ('Slideshow Effekt', 'ZX_SLIDESHOW_EFFECT', 'Gewünschter Effekt für den Bildwechsel:',	43),
@@ -79,14 +75,20 @@ REPLACE INTO configuration_language (configuration_title, configuration_key, con
 ('Banner Anzeigengruppe - Bild 18', 'ZX_SLIDESHOW_BANNERS_GROUP_SET26', 'Bild 18',	43),
 ('Banner Anzeigengruppe - Bild 19', 'ZX_SLIDESHOW_BANNERS_GROUP_SET27', 'Bild 19', 43),
 ('Banner Anzeigengruppe - Bild 20', 'ZX_SLIDESHOW_BANNERS_GROUP_SET28', 'Bild 20',	43),
-('Banner Anzeigengruppe - Bild 20', 'ZX_SLIDESHOW_BANNERS_GROUP_SET28', 'Bild 20',	43),
-('Slideshow Bildhöhe', 'ZX_SLIDESHOW_MAX_HEIGHT', 'Stellen Sie hier die maximale Höhe der Slideshow Bilder in Pixel ein:',	43),
-('Slideshow Bildhöhe', 'ZX_SLIDESHOW_MAX_HEIGHT', 'Stellen Sie hier die maximale Breite der Slideshow Bilder in Pixel ein:',	43),
-('Slideshow Bildbreite', 'ZX_SLIDESHOW_MAX_WIDTH', 'Derzeit nutzen Sie <b>2.8.0</b>',	43);
+('Banner Anzeigengruppe - Bild 20', 'ZX_SLIDESHOW_BANNERS_GROUP_SET28', 'Bild 20',	43)");
 
-###################################
-# Register for Admin Access Control
-###################################
 
-INSERT INTO admin_pages (page_key,language_key,main_page,page_params,menu_key,display_on_menu,sort_order)
-VALUES ('configZXSlideshow','BOX_CONFIGURATION_ZX_SLIDESHOW','FILENAME_CONFIGURATION',CONCAT('gID=',@gid),'configuration','Y',@gid);
+$admin_page = 'configZXSlideshow';
+// delete configuration menu
+$db->Execute("DELETE FROM " . TABLE_ADMIN_PAGES . " WHERE page_key = '" . $admin_page . "' LIMIT 1;");
+// add configuration menu
+if (!zen_page_key_exists($admin_page)) {
+$db->Execute(" SELECT @gid:=configuration_group_id
+FROM ".TABLE_CONFIGURATION_GROUP."
+WHERE configuration_group_title= 'ZX Slideshow'
+LIMIT 1;");
+
+$db->Execute("INSERT IGNORE INTO " . TABLE_ADMIN_PAGES . " (page_key,language_key,main_page,page_params,menu_key,display_on_menu,sort_order) VALUES 
+('configZXSlideshow','BOX_CONFIGURATION_ZX_SLIDESHOW','FILENAME_CONFIGURATION',CONCAT('gID=',@gid),'configuration','Y',@gid)");
+$messageStack->add('ZX Slideshow Konfiguration erfolgreich hinzugefügt.', 'success');  
+}
